@@ -1,0 +1,56 @@
+name: Run Plugin Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: "#dgs45As"
+          MYSQL_DATABASE: wp_test
+          MYSQL_USER: wp_test
+          MYSQL_PASSWORD: "#dgs45As"
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping --silent" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+      - name: 🛠️ Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🐘 Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          extensions: mbstring, dom, curl
+          tools: composer, phpunit
+
+      - name: 📦 Install Dependencies
+        run: |
+          composer install --no-interaction --prefer-dist
+
+      - name: 📥 Download and Extract WooCommerce
+        run: |
+          curl -o woocommerce.zip https://downloads.wordpress.org/plugin/woocommerce.9.7.1.zip
+          unzip woocommerce.zip
+          mv woocommerce ..
+
+      - name: 📥 Download and Extract WooCommerce Subscriptions
+        run: |
+          curl -L -o woocommerce-subscriptions.zip https://github.com/pronamic/woocommerce-subscriptions/archive/refs/heads/main.zip
+          unzip woocommerce-subscriptions.zip
+          mv woocommerce-subscriptions-main woocommerce-subscriptions
+          mv woocommerce-subscriptions ..
+
+      - name: 🧪 Run PHPUnit Tests
+        run: vendor/bin/phpunit --testdox

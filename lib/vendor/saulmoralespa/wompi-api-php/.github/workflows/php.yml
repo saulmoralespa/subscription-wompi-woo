@@ -1,0 +1,44 @@
+name: PHP with composer
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    env:
+      KEY_PRIVATE: ${{ vars.KEY_PRIVATE }}
+      KEY_PUBLIC: ${{ vars.KEY_PUBLIC }}
+      KEY_INTEGRETY: ${{ vars.KEY_INTEGRETY }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate --strict
+
+      - name: Cache Composer packages
+        id: composer-cache
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+      - name: Create .env File
+        run: |
+          echo "KEY_PRIVATE=${{ vars.KEY_PRIVATE }}" >> .env
+          echo "KEY_PUBLIC=${{ vars.KEY_PUBLIC }}" >> .env
+          echo "KEY_INTEGRETY=${{ vars.KEY_INTEGRETY }}" >> .env
+      - name: Run PHPUnit Tests
+        run: composer run-script test

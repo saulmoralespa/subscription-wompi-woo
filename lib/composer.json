@@ -1,0 +1,12 @@
+{
+    "name": "saulmoralespa/subscription-wompi-woo",
+    "authors": [
+        {
+            "name": "Saul Morales",
+            "email": "moralespachecopablo@gmail.com.com"
+        }
+    ],
+    "require": {
+        "saulmoralespa/wompi-api-php": "dev-main"
+    }
+}

@@ -1,0 +1,8 @@
+.idea
+pnpm-lock.yaml
+/vendor/
+/wordpress/
+/node_modules
+.env
+.phpunit.result.cache
+composer.lock

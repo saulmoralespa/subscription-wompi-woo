@@ -1,0 +1,4 @@
+div#card-subscription-wompi #form-wompi {
+    display: flex;
+    flex-direction: column;
+}
