@@ -35,6 +35,9 @@ Sí, este plugin es compatible con WooCommerce Subscriptions y requiere que est�
 **¿Es gratuito el plugin?**
 Sí, el plugin está disponible en un modelo freemium. Puedes descargarlo y comenzar a usarlo sin costo.
 
+**¿Es compatible con Checkout Block?**
+No, pero próximamente tendrá compatibilidad.
+
 **¿Dónde obtengo soporte?**
 Para más información, revisa la [documentación](https://shop.saulmoralespa.com/subscription-wompi-woocommerce).
 
