@@ -4,7 +4,7 @@
  */
 
 // Composer autoloader must be loaded before WP_PHPUNIT__DIR will be available
-require_once __DIR__ . getenv('WP_TEST__DIR') .  '/vendor/autoload.php';
+require_once getenv('WP_TEST__DIR') .  '/vendor/autoload.php';
 
 
 // Give access to tests_add_filter() function.
