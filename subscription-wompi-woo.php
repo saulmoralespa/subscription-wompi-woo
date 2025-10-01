@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) {
 }
 
 if(!defined('SUBSCRIPTION_WOMPI_SW_VERSION')){
-    define('SUBSCRIPTION_WOMPI_SW_VERSION', '0.0.1');
+    define('SUBSCRIPTION_WOMPI_SW_VERSION', '0.0.2');
 }
 
 if(!defined('SUBSCRIPTION_WOMPI_SW_ID')){
