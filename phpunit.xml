@@ -15,6 +15,5 @@
 
     <php>
         <env name="WP_PHPUNIT__TESTS_CONFIG" value="tests/wp-config.php" />
-        <env name="WP_TEST__DIR" value="/../../../../wp-tests" />
     </php>
 </phpunit>
