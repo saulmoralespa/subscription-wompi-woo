@@ -2,13 +2,16 @@
 /**
  * Plugin Name: Subscription Wompi WooCommerce
  * Description: Integración de suscripciones con Wompi para WooCommerce.
- * Version: 0.0.1
- * Author: Saul Morales Pacheco
+ * Version: 0.0.2
+ * Author: Saúl Morales Pacheco
  * Author URI: https://saulmoralespa.com
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
- * WC tested up to: 8.9
- * WC requires at least: 9.6
+ * WC tested up to: 10.1
+ * WC requires at least: 9.0
+ * Requires at least: 6.0
+ * Tested up to: 6.8
+ * Requires PHP: 8.1
  * Requires Plugins: woocommerce
  */
 

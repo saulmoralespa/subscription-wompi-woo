@@ -3,11 +3,12 @@ Contributors: saulmorales
 Donate link: https://saulmoralespa.com/donation
 Tags: WordPress, store, sales, sell, shop, shopping, cart, checkout, configurable, Wompi, suscripción, recurrente, pagos
 Requires at least: 6.0
-Tested up to: 6.7.2
+Tested up to: 6.8
 Requires PHP: 8.1
-Stable tag:  0.0.1
+Stable tag:  0.0.2
 License: GNU General Public License v3.0
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Donate link: https://saulmoralespa.com/donation
 
 Integración de suscripciones con Wompi para WooCommerce.
 

@@ -29,10 +29,7 @@ class WC_Subscription_Wompi_SW extends WC_Payment_Gateway
             'subscription_suspension',
             'subscription_reactivation',
             'subscription_cancellation',
-            'multiple_subscriptions',
-            /*'add_payment_method',
-            'tokenization',
-            'refunds'*/
+            'multiple_subscriptions'
         ];
 
         $this->isTest = (bool)$this->get_option( 'environment' );
@@ -67,7 +64,10 @@ class WC_Subscription_Wompi_SW extends WC_Payment_Gateway
 
     public function is_available(): bool
     {
-        if (!parent::is_available() || !$this->key_private || !$this->key_public || !$this->key_integrety) {
+        if (!parent::is_available() ||
+                !$this->key_private ||
+                !$this->key_public ||
+                !$this->key_integrety) {
             return false;
         }
 

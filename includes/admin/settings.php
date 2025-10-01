@@ -3,22 +3,22 @@
 wc_enqueue_js( "
     jQuery(function($) {
         const selectors = {
-            subscriptionWompiFields: '#woocommerce_subscription_wompi_sw_key_private, #woocommerce_subscription_wompi_sw_key_public, #woocommerce_subscription_wompi_sw_key_integrety',
-            subscriptionWompiSandboxFields: '#woocommerce_subscription_wompi_sw_sandbox_key_private, #woocommerce_subscription_wompi_sw_sandbox_key_public, #woocommerce_subscription_wompi_sw_sandbox_key_integrety',
+            wompiFields: '#woocommerce_subscription_wompi_sw_key_private, #woocommerce_subscription_wompi_sw_key_public, #woocommerce_subscription_wompi_sw_key_integrety',
+            wompiSandboxFields: '#woocommerce_subscription_wompi_sw_sandbox_key_private, #woocommerce_subscription_wompi_sw_sandbox_key_public, #woocommerce_subscription_wompi_sw_sandbox_key_integrety',
             environmentSelector: '#woocommerce_subscription_wompi_sw_environment'
         };
         
         function toggleFields() {
             const {
-                subscriptionWompiFields,
-                subscriptionWompiSandboxFields,
+                wompiFields,
+                wompiSandboxFields,
                 environmentSelector
             } = selectors;
             
             const isProduction = $(environmentSelector).val() === '0';
-            const paymentFields = isProduction ? subscriptionWompiFields : subscriptionWompiSandboxFields;
+            const paymentFields = isProduction ? wompiFields : wompiSandboxFields;
             
-            $(subscriptionWompiSandboxFields + ',' + subscriptionWompiFields).closest('tr').hide();
+            $(wompiSandboxFields + ',' + wompiFields).closest('tr').hide();
             
             $(paymentFields).closest('tr').show();
         }
@@ -88,7 +88,7 @@ return apply_filters("subscription_wompi_sw_settings",
         ),
         'sandbox_key_integrety' => array(
             'title' => __( 'Llave de integridad' ),
-            'type'  => 'text',
+            'type'  => 'password',
             'description' => __( 'Llave de integridad para el entorno de pruebas' ),
             'desc_tip' => false
         ),

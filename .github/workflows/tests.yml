@@ -39,6 +39,10 @@ jobs:
         run: |
           composer install --no-interaction --prefer-dist
 
+      - name: Set environment variables
+        run: |
+          echo "WP_TEST__DIR=$(pwd)" >> $GITHUB_ENV    
+
       - name: 📥 Download and Extract WooCommerce
         run: |
           curl -o woocommerce.zip https://downloads.wordpress.org/plugin/woocommerce.9.7.1.zip
